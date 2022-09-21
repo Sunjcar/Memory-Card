@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './Components/Header';
 import Main from './Components/Main';
+import RandomizeArray from './Utils/RandomizeArray';
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0)
@@ -11,9 +12,9 @@ function App() {
   const [clickedAnime, setClickedAnime] = useState([])
 
   const fetchAnime = async () => {
-    const animeAPI = await fetch(`https://api.jikan.moe/v4/characters`)
+    const animeAPI = await fetch(`https://api.jikan.moe/v4/characters?orderby=mal_id`)
       .then(res => res.json())
-    setAnime(animeAPI.data)
+    setAnime(RandomizeArray(animeAPI.data))
     console.log(animeAPI)
   }
 
@@ -21,11 +22,10 @@ function App() {
     fetchAnime();
   }, [])
 
-
   return (
     <div className="App">
       <div className='header'>
-        <Header/>
+        <Header />
       </div>
       <div className='content-wrap'>
         <Main
