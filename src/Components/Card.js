@@ -1,13 +1,13 @@
 import React from 'react'
 
-function Card({ card }) {
+function Card({ card, handleClickedAnime}) {
     return (
-        <article className='anime-card'>
-            <a /* href={card.url} */  target='_blank' rel='noreferrer'>
+        <article className='anime-card' onClick={handleClickedAnime}>
+            <a   target='_blank' rel='noreferrer'>
                 <figure>
-                    <img src={card.images.jpg.image_url} alt='Anime' />
+                    <img src={card.images.jpg.image_url} alt={card.name} />
+                    <h6>{card.name}</h6>
                 </figure>
-                <h6>{card.name}</h6>
             </a>
         </article>
     )

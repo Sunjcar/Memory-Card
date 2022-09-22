@@ -1,13 +1,15 @@
 import React from 'react'
 import Card from './Card'
 
-function Main(props) {
+function Main({anime,handleClickedAnime}) {
     return (
         <div className='anime-list'>
-            {props.anime.map(card => (
+            {anime.map(card => (
                 <Card
+                    handleClickedAnime={handleClickedAnime}
                     card={card}
-                    key={card.mal_id} />
+                    key={card.mal_id} 
+                    />
             ))}
         </div>
     )
