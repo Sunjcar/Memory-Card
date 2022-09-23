@@ -5,10 +5,10 @@ const Scoreboard = ({ currentScore, highScore }) => {
     return (
         <div className='game-score'>
             <CurrentScore>
-                CurrentScore: {currentScore}
+                Current Score: {currentScore}
             </CurrentScore>
             <HighScore>
-                HighScore: {highScore}
+                High Score: {highScore}
             </HighScore>
         </div>
 
