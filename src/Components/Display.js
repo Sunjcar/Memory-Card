@@ -2,12 +2,12 @@ import React from 'react'
 import styledComponents from 'styled-components'
 
 
-function Display({highScore}) {
+function Display({highScore, changeDisplay}) {
   return (
     <Wrap>
         <h2>Game Over!</h2>
         <HighScore>Your high score is: {highScore}</HighScore>
-        <p> Click on any card to start a new game!</p>
+        <button onClick={changeDisplay}> New Game!</button>
     </Wrap>
   )
 }

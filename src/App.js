@@ -33,15 +33,16 @@ function App() {
 
 
   const playGame = (name) => {
+    setDisplay(true)
     if (clickedAnime.includes(name)) {
       resetGame()
     } else {
+      setCurrentScore(0)
       const newScore = currentScore + 1
       if (newScore > highScore)
         setHighScore(newScore)
       setCurrentScore(newScore)
       setClickedAnime((prevState) => [...prevState, name])
-      setDisplay(true)
     }
   }
 
@@ -49,6 +50,10 @@ function App() {
     setDisplay(false)
     setClickedAnime([])
     setCurrentScore(0)
+  }
+
+  const changeDisplay = () => {
+    setDisplay(true)
   }
   return (
     <div className="App">
@@ -59,6 +64,7 @@ function App() {
         {display ? <Scoreboard
           currentScore={currentScore}
           highScore={highScore} /> : <Display
+          changeDisplay={changeDisplay}
           highScore={highScore} />}
         <Main
           handleClickedAnime={handleClickedAnime}
