@@ -12,7 +12,7 @@ function App() {
   const [clickedAnime, setClickedAnime] = useState([])
 
   const fetchAnime = async () => {
-    const animeAPI = await fetch(`https://api.jikan.moe/v4/characters?orderby=mal_id`)
+    const animeAPI = await fetch(`https://api.jikan.moe/v4/characters?orderby=mal_id&limit=15`)
       .then(res => res.json())
     setAnime(RandomizeArray(animeAPI.data))
   }
@@ -34,11 +34,10 @@ function App() {
       resetGame()
     } else {
       const newScore = currentScore + 1
-      if (newScore > highScore) {
+      if (newScore > highScore) 
         setHighScore(newScore)
         setCurrentScore(newScore)
         setClickedAnime((prevState) => [...prevState, name])
-      }
     }
   }
 
