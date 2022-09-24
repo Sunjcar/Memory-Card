@@ -60,6 +60,7 @@ function App() {
       <div className='header'>
         <Header />
       </div>
+      <p className='rules'>Get points by clicking on an image but don't click on the same image more than once!</p>
       <div className='content-wrap'>
         {display ? <Scoreboard
           currentScore={currentScore}
